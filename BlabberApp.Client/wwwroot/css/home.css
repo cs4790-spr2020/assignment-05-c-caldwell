@@ -1,0 +1,12 @@
+.thinBlackBorder {
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.giveMeSomeSpace {
+    margin: 5%;
+}
+
+.centered{
+    text-align: center;
+}

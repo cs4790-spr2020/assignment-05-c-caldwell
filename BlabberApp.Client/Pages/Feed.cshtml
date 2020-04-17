@@ -1,0 +1,35 @@
+﻿@page
+@model BlabberApp.Client.Pages.FeedModel
+@using BlabberApp.Domain.Entities
+@using BlabberApp.Services
+@inject IBlabService BlabService
+@inject IUserService UserService
+@{
+    ViewData["Title"] = "Feed";
+}
+<style>
+    .centered{
+        text-align: center;
+    }
+</style>
+<link rel="stylesheet" href="css/home.css">
+<section id="main">
+    <form class = "centered" method="post">
+        <label>Email</label>
+        <input type="email" name="emailaddress">
+        <br/>
+        <lable>Message</lable>
+        <input type="text" name="message">
+        <br/>
+        <input style = "margin-top: 1%;" type="submit">
+    </form>
+    <h1 class = "centered">Feed</h1>
+    <div class = "centered" id="content">
+        All the feed content will go here!
+    </div>
+    <div class = "thinBlackBorder centered">
+        @foreach (@Blab blab in @BlabService.GetAll()) {
+        <h5 class = "giveMeSomeSpace">What is @blab.User.Email.ToString() blabbing about today?: @blab.Message.ToString()</h5>
+    }
+    </div>
+</section>

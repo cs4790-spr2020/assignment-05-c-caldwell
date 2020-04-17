@@ -1,0 +1,25 @@
+﻿@page
+@model BlabberApp.Client.Pages.UsersModel
+@using BlabberApp.Domain.Entities
+@using BlabberApp.Services
+@inject IUserService UserService
+@{
+    ViewData["Title"] = "Users";
+}
+<style>
+    .centered{
+        text-align: center;
+    }
+    .border{
+        border: 5px solid black;
+        border-radius: 10px;
+    }
+</style>
+<p>
+    <h1 class = "centered">@ViewData["Title"]</h1>
+    <div class = "centered border">
+        @foreach (@User user in @UserService.GetAll()) {
+            <li>Users Email: @user.Email.ToString()</li>
+        }
+    </div>
+</p>

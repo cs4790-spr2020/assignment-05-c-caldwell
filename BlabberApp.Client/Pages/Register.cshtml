@@ -1,0 +1,20 @@
+﻿@page
+@model BlabberApp.Client.Pages.RegisterModel
+@using BlabberApp.Services
+@inject IUserService UserService
+@{
+    ViewData["Title"] = "Register";
+}
+<h1 class = "centered">@ViewData["Title"]</h1>
+
+<link rel="stylesheet" href="css/home.css">
+
+<form class = "centered" method="post" id ="form">
+    <label>Email</label>
+    <input type="email" name="emailaddress" id = "emailaddress">
+    <button id = "submit">Submit</button>
+</form>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/register.js"></script>
