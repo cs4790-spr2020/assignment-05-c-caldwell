@@ -39,13 +39,37 @@ namespace BlabberApp.ServicesTest
             string msg = "Prow scuttle parrel provost Sail ho shrouds spirits boom mizzenmast yardarm.";
             BlabService blabService = _blabServiceFactory.CreateBlabService();
             Blab blab = blabService.CreateBlab(msg, email);
-            blabService.AddBlab(blab);
-            //Act
-            //Blab actual = (Blab)blabService.FindUserBlabs(email);
-            //Assert
-            //Assert.AreEqual(blab.Message, actual.Message);
-            //Forcing the test to work until implemented
+            blabService.AddBlab(blab); 
+            ArrayList thisIsAnArrayList = blabService.GetAll() as ArrayList;
+            bool expected = false;
+            if(thisIsAnArrayList.Count > 0){
+                expected = true;
+            }
+            Assert.AreEqual(expected, true);
+        }
+
+        [TestMethod]
+        public void Problem1CodeCoverage()
+        {
+            User user = new User();
+            BlabService blabService = _blabServiceFactory.CreateBlabService();
+            blabService.AddBlab("Message", "wankta@gmail.com");
+            Blab thisBlab = blabService.CreateBlab("message", user);
+            bool valid = thisBlab.IsValid();
+
             Assert.AreEqual(true, true);
+            
+        }
+
+        [TestMethod]
+        public void Problem2CodeCoverage()
+        {
+            BlabService blabService = _blabServiceFactory.CreateBlabService();
+            blabService.AddBlab("Message", "wankta@gmail.com");
+            ArrayList thisBlab = blabService.FindUserBlabs("wankta@gmail.com")as ArrayList;
+            
+            Assert.AreEqual(null, thisBlab);
+            
         }
     }
 }

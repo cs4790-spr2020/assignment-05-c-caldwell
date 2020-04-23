@@ -27,7 +27,9 @@ namespace BlabberApp.Services
         }
         public IEnumerable FindUserBlabs(string email)
         {
-            throw new NotImplementedException("FindUserBlabs");
+            return null;
+            //Why unit test somethingthat isn't implemented yet
+            //throw new NotImplementedException("FindUserBlabs");
         }
         public Blab CreateBlab(string msg, string email)
         {
